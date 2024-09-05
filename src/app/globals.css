@@ -2,32 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: black;
+  color: white;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.movie-bg-s {
+  position: fixed;
+  pointer-events: none;
+  -webkit-animation: movie 1s steps(4) infinite;
+  animation: movie 1s steps(4) infinite;
+  background-image: url("./../../public/noise.png");
+  height: 150%;
+  left: -50%;
+  top: -50%;
+  width: 150%;
+  z-index: 99;
+  animation: movie 1s infinite ease-in-out;
+}
+
+.movie-bg {
+  position: fixed;
+  pointer-events: none;
+  -webkit-animation: movie 1s steps(4) infinite;
+  animation: movie 1s steps(4) infinite;
+  background-image: url("./../../public/noise.png");
+  height: 150%;
+  left: -50%;
+  top: -50%;
+  transform: scale(2);
+  width: 150%;
+  z-index: 99;
+  animation: movie 1s infinite ease-in-out;
+}
+
+@keyframes movie {
+  0% {
+    background-position: 0 0;
   }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+video {
+  opacity: 1;
 }
